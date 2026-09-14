@@ -1,0 +1,4 @@
+.env
+/storage/site-checks/history.json
+/storage/heatmap-snapshots/*.json
+.DS_Store
