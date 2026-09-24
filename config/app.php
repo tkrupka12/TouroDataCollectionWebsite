@@ -9,5 +9,8 @@ return [
     'history_limit' => 40,
     'history_file' => APP_ROOT . '/storage/site-checks/history.json',
     'heatmap_storage' => APP_ROOT . '/storage/heatmap-snapshots',
+    'semrush_storage' => APP_ROOT . '/storage/semrush',
+    'ahrefs_storage' => APP_ROOT . '/storage/ahrefs',
+    'siteimprove_storage' => APP_ROOT . '/storage/siteimprove',
     'timeout_seconds' => 12,
 ];

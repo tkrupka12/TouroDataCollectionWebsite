@@ -29,24 +29,81 @@ $heatmapMinutes = max(1, (int) (env_value('CRAZY_EGG_REFRESH_MINUTES', '15') ?? 
     data-target-url="<?= $targetUrl ?>"
 >
     <main class="workspace">
+        <div class="source-panels">
         <section class="heatmap-panel" aria-label="Crazy Egg heatmap snapshots">
             <div class="heatmap-head">
                 <p class="eyebrow">Heatmap</p>
                 <h2>Crazy Egg snapshots</h2>
                 <form class="heatmap-lookup" id="heatmapLookup">
-                    <label for="heatmapUrl">Look up a URL</label>
+                    <label for="heatmapKeyword">Search snapshots by keyword</label>
                     <div class="heatmap-lookup-row">
-                        <input id="heatmapUrl" name="url" type="text" placeholder="https://www.touro.edu/" autocomplete="url" spellcheck="false">
-                        <button type="submit">Look up</button>
+                        <div class="heatmap-search-box">
+                            <input
+                                id="heatmapKeyword"
+                                name="keyword"
+                                type="search"
+                                placeholder="Start typing a name or URL…"
+                                autocomplete="off"
+                                spellcheck="false"
+                                role="combobox"
+                                aria-autocomplete="list"
+                                aria-controls="heatmapSuggestions"
+                                aria-expanded="false"
+                            >
+                            <div class="heatmap-suggestions" id="heatmapSuggestions" role="listbox" hidden></div>
+                        </div>
+                        <button type="submit">Search</button>
                     </div>
                 </form>
-                <p class="heatmap-meta" id="heatmapMeta">Loading saved snapshot JSON…</p>
             </div>
-            <ul class="heatmap-list" id="heatmapList"></ul>
-            <p class="heatmap-note">
-                This lists snapshot jobs (URL, status, visits). Crazy Egg does not return the colored heatmap image here — export CSV/JSON from the dashboard for click-level data.
-            </p>
+            <div class="heatmap-results" id="heatmapResults" hidden>
+                <p class="heatmap-meta" id="heatmapMeta"></p>
+                <ul class="heatmap-list" id="heatmapList"></ul>
+                <div class="ahrefs-block" id="ahrefsBlock" hidden>
+                    <p class="heatmap-meta" id="ahrefsMeta"></p>
+                    <ul class="heatmap-list" id="ahrefsList"></ul>
+                </div>
+                <p class="heatmap-note">
+                    This lists snapshot jobs (URL, status, visits). Crazy Egg does not return the colored heatmap image here — export CSV/JSON from the dashboard for click-level data.
+                </p>
+            </div>
         </section>
+
+        <section class="heatmap-panel" aria-label="Siteimprove site quality">
+            <div class="heatmap-head">
+                <p class="eyebrow">Quality</p>
+                <h2>Siteimprove</h2>
+                <form class="heatmap-lookup" id="siteimproveLookup">
+                    <label for="siteimproveKeyword">Search Siteimprove sites</label>
+                    <div class="heatmap-lookup-row">
+                        <div class="heatmap-search-box">
+                            <input
+                                id="siteimproveKeyword"
+                                name="keyword"
+                                type="search"
+                                placeholder="Start typing a site name or URL…"
+                                autocomplete="off"
+                                spellcheck="false"
+                                role="combobox"
+                                aria-autocomplete="list"
+                                aria-controls="siteimproveSuggestions"
+                                aria-expanded="false"
+                            >
+                            <div class="heatmap-suggestions" id="siteimproveSuggestions" role="listbox" hidden></div>
+                        </div>
+                        <button type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="heatmap-results" id="siteimproveResults" hidden>
+                <p class="heatmap-meta" id="siteimproveMeta"></p>
+                <ul class="heatmap-list" id="siteimproveList"></ul>
+                <p class="heatmap-note">
+                    Cached Siteimprove quality, SEO, and accessibility summaries. Refresh with php bin/siteimprove.php fetch.
+                </p>
+            </div>
+        </section>
+        </div>
 
         <header class="topbar">
             <div>

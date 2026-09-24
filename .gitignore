@@ -1,4 +1,9 @@
 .env
 /storage/site-checks/history.json
 /storage/heatmap-snapshots/*.json
+/storage/semrush/*.json
+/storage/ahrefs/*.json
+/storage/siteimprove/*.json
+/storage/*.refresh.lock
+/storage/*-refresh.log
 .DS_Store

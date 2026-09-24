@@ -19,4 +19,19 @@ if ($uri === '/api/heatmap' || $uri === '/api/heatmap.php') {
     return true;
 }
 
+if ($uri === '/api/semrush' || $uri === '/api/semrush.php') {
+    require APP_ROOT . '/src/api/semrush.php';
+    return true;
+}
+
+if ($uri === '/api/ahrefs' || $uri === '/api/ahrefs.php') {
+    require APP_ROOT . '/src/api/ahrefs.php';
+    return true;
+}
+
+if ($uri === '/api/siteimprove' || $uri === '/api/siteimprove.php') {
+    require APP_ROOT . '/src/api/siteimprove.php';
+    return true;
+}
+
 require __DIR__ . '/views/dashboard.php';

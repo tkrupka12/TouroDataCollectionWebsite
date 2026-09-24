@@ -48,3 +48,5 @@ function env_value(string $name, ?string $default = null): ?string
 }
 
 load_env_file(APP_ROOT . '/.env');
+
+require_once APP_ROOT . '/src/cache/CacheRefresh.php';
